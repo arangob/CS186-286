@@ -9,12 +9,14 @@ var routesApi = require('./app_api/routes/index');
 
 
 // view engine setup
-app.set('views', path.join(__dirname, 'app_client', 'other'));
+app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: 'true' }));
+app.use(bodyParser.urlencoded({
+    extended: 'true'
+}));
 app.use(cookieParser());
 
 app.use('/api', routesApi);
@@ -31,17 +33,17 @@ app.set('view engine', 'html');
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  // render the error page
-  res.status(err.status || 500);
-  // res.render('error');
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // render the error page
+    res.status(err.status || 500);
+    // res.render('error');
 });
 
 
 var server = app.listen(app.get('port'), function() {
-       console.log('I am listening on port ' + server.address().port);
+    console.log('I am listening on port ' + server.address().port);
 });
 
 

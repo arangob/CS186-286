@@ -6,13 +6,12 @@ var postevent = require('../controllers/postevent');
 var postComment = require('../controllers/postcomment');
 var ctrlUsers = require('../controllers/usercontroller');
 
-router.route('/events').get(ctrlEvent.eventsGetAll);
 router.route('/events/:venueName').get(ctrlEvent.eventGetOne);
-
 
 //eventcontrollers mongo-db routes
 router.get('/events', ctrlEvent.eventsGetAll);
-router.get('/events/:venueName', ctrlEvent.eventGetOne);
+//changed in iteration 7
+router.get('/events/:eventid', ctrlEvent.eventGetOne);
 
 //post event CRUD routes
 router.post('/viewevent', postevent.createOne);
@@ -22,9 +21,9 @@ router.delete('/viewevent/:eventid', postevent.deleteEvent);
 
 //post comment CRUD routes
 //router.put('/eventDetail/comments/:commentid', postComment.commentUpdateOne);
-router.get('/eventDetail/comments', postComment.getComments);
-router.post('/eventDetail/comments', postComment.commentCreate);
-router.delete('/eventDetail/comments/:commentid', postComment.deleteComment);
+router.get('/viewevent/:eventid/comments', postComment.getComments);
+router.post('/viewevent/:eventid/comments', postComment.commentCreate);
+router.delete('/viewevent/:eventid/comments/:commentid', postComment.deleteComment);
 
 /*USER PROFILES db*/
 /*POST users db*/
@@ -40,7 +39,6 @@ router.delete('/users/:userid', ctrlUsers.deleteUser);
 
 // Authentication
 router.post('/register', ctrlUsers.register);
-router.post('/login', ctrlUsers.login);  
-
+router.post('/login', ctrlUsers.login);
 
 module.exports = router;

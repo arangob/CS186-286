@@ -1,40 +1,28 @@
 var mongoose = require('mongoose');
+var ObjectId = require('mongodb').ObjectID;
 var Event = mongoose.model('Event');
 
 module.exports.eventsGetAll = function(req, res) {
     console.log('Read All Events');
-    
     Event
       .find()
       .exec(function(err, events) {
           console.log("Found events", events.length);
-          
           res
             .json(events);
-            
       });
 };
 
+//changed in iteration 7 to find by event id
 module.exports.eventGetOne = function(req, res) {
-    console.log('Read one event');
-
-    var id = req.params.venueName;
-    console.log('req.params', req.params);
-    // console.log('GET venueName', id);
-    
-    Event
-     .findOne({venueName: id})
-     .exec(function(err, doc) {
-         if(err) {
-             console.log("can't get event", id);
-             res
-                .status(400)
-                .json(err);
-         } else {
-             res
-                .status(200)
-                .json(doc);
-         }
+    var id = req.params.eventid;
+    var query =  {"_id" : new ObjectId(id)};
+     Event
+      .findOne(query)
+      .exec(function(err, event) {
+          console.log("Found event", event);
+              res
+                 .json(event);
      });
 };
 
