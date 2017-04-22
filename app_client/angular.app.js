@@ -11,7 +11,9 @@
         templateUrl: 'other/eventLayout.html'
       })
       .when('/eventdetail', {
-        templateUrl: 'other/eventDetail.html'
+        templateUrl: 'eventdetail/eventdetail.html',
+        controller: 'EventDetailController',
+        controllerAs: 'eventDetailCon'
       })
       .when('/post', {
         templateUrl: 'postevent/postevent.html',

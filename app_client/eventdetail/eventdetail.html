@@ -333,14 +333,23 @@
   </body>
   <!-- Container for Event Details-->
   <div id="band" class="container">
-    <div class="row">
+    <div class="row" ng-click="eventDetailCon.updateSaved()">
       <div class="col-sm-8 col-md-8 col-lg-9">
         <h3>Description</h3>
         <p>We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <p>We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div>
       <div class="col-sm-1 col-md-1 col-lg-1"></div>
-      <div class="col-sm-3 col-md-3 col-lg-2"><a id="saveButton" style="font-size:20px" onclick="javascript:updateBookmarks()" class="btn"><img id="bookmark" src="public/bootstrap/images/unbooked.png">&nbspSave This Event&nbsp</a><br><br>
+     
+      
+
+        <button type="click" style="font-size:20px" class="btn">
+          <img id="bookmark" src="public/bootstrap/images/unbooked.png">&nbspSave This Event&nbsp
+        </button><br><br>
+
+      
+      
+      <div class="col-sm-3 col-md-3 col-lg-2"> 
         <h3>Address</h3>
         <p>Cute Cafe</p>
         <p>125 High Street</p>
@@ -375,17 +384,6 @@
       </div>
       <div class="col-sm-6 col-md-6 col-lg-4">
         <div id="googleMap"></div>
-        <script>
-          function updateBookmarks(){
-          var img = document.getElementById('bookmark').src;
-          if (img.indexOf('unbooked.png')!=-1) {
-          document.getElementById('bookmark').src  = 'public/bootstrap/images/booked.png';
-          }
-          else {
-          document.getElementById('bookmark').src = 'public/bootstrap/images/unbooked.png';
-          }
-          }
-        </script>
         <script>
           function myMap() {
           var myCenter = new google.maps.LatLng(37.7971799,-122.2760126);
