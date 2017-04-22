@@ -3,7 +3,7 @@ jQuery(document).ready(function() {
     /*
         Fullscreen background
     */
-    $.backstretch("../bootstrap/images/pexels-photo-polaroids.jpeg");
+    // $.backstretch("/bootstrap/images/pexels-photo-polaroids.jpeg");
 
     /*
         Form validation
