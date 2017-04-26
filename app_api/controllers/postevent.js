@@ -7,7 +7,7 @@ var sendJSONresponse = function(res, status, content) {
 };
 
 //CREATE NEW EVENT
-module.exports.eventsCreate = function(req, res) {
+module.exports.createOne = function(req, res) {
   console.log("POST new faculty");
   console.log('req params body' , req.params, req.body);
   Events.create({

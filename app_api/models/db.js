@@ -1,7 +1,9 @@
 var mongoose = require ( 'mongoose' );
 var gracefulShutdown;
 var dbURI = 'mongodb://localhost/artsintown';
-
+if (process.env.NODE_ENV === 'production') {
+    dbURI = 'mongodb://heroku_7fvflzq5:qh2uagsmrid1dnlgbgqbfnq454@ds117821.mlab.com:17821/heroku_7fvflzq5';
+}
 //connect to MongoDB using mongoose
 // no callbacks after DB connection, instead mongoose listens for events
 mongoose.connect(dbURI);
